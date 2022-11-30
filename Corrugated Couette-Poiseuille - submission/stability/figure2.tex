@@ -1,0 +1,67 @@
+\documentclass[a4paper,12pt,preview,tikz]{standalone}% 'crop' is the default for v1.0, before it was 'preview'
+\usepackage{define}
+
+\def\dir{./}
+\def\wgh{8cm}
+
+
+\begin{document}
+\centering
+\def\hgh{0.6\textwidth}
+\begin{tikzpicture}
+   \pgfplotsset{
+  log y ticks with fixed point/.style={
+      yticklabel={
+        \pgfkeys{/pgf/fpu=true}
+        \pgfmathparse{exp(\tick)}%
+        \pgfmathprintnumber[fixed relative, precision=1]{\pgfmathresult}
+        \pgfkeys{/pgf/fpu=false}
+      }
+  } }
+\begin{groupplot}[
+  group style={ group name=my plots, group size=1 by 1,  horizontal sep=50pt},
+  title style={at={(-0.1,-0.25)},anchor=north},
+  subtitle/.style={title=\gpsubtitle{#1}},
+  width = \wgh,
+  height = 5cm,
+  grid=both,
+  ylabel={$v_{p}$}, 
+    xlabel={$A$},
+  ylabel near ticks,
+  ylabel style={rotate=-90}, label style={font=\small}, tick label style={font=\small},  
+  ymin =0.005, ymax=2.2,
+  smooth,  
+  ymode=log,  
+   log x ticks with fixed point,
+      every axis y label/.style={
+     at={(ticklabel* cs:1.05)},
+     anchor=west,
+  },
+  ]
+   \nextgroupplot[  xtick={0,0.25,...,1}, xmin =0, xmax =1]
+
+   \addplot [ultra thick, solid, x filter/.code={\pgfmathparse{#1*0.5}\pgfmathresult}, tension=1 ] table[x index=0,
+     y expr={(\thisrowno{3}/\thisrowno{2})}]
+     {data-v.txt} node[pos=0.93,  font=\fontsize{5}{6}\selectfont, sloped, above]{A$*$Poiseuille + Couette flow}; 
+   \addplot [thick, solid, x filter/.code={\pgfmathparse{#1*0.5}\pgfmathresult}, ] table[x index=0,
+     y expr={(\thisrowno{3}/\thisrowno{2})}]
+     {phase-speed-p.txt} node[pos=0.7,pin={[pin edge={thick, solid, black},pin distance=8pt,  draw, solid, thin, rounded corners=2pt, inner sep =2pt, rectangle, font=\fontsize{5}{6}\selectfont, fill=white]above:{Poiseuille flow}}, inner sep=0pt,]{};
+
+
+  		    	\addplot [solid, thin, color=black] coordinates {
+		(0.71,2.2)
+		(0.71, 0.001 )
+		}node[pos=0.5, Label, font=\fontsize{7}{8}\selectfont ]  {$0.71$};
+		
+		
+	
+		  		    	\addplot [solid, thin, color=black] coordinates {
+		(0.47,2.2)
+		(0.47,0.001)
+		}node[pos=0.3, Label, font=\fontsize{7}{8}\selectfont ]  {$0.47$};
+		
+\end{groupplot}
+
+
+\end{tikzpicture}
+\end{document}

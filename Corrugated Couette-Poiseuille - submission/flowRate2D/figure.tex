@@ -1,0 +1,85 @@
+\documentclass[a4paper,12pt]{standalone}
+\usepackage{define}
+
+\def\dir{./}
+\def\wgh{8cm}
+\def\hgh{5cm}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{define}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  axis y line*=left,
+  grid=both,
+  width = \wgh,
+  height = \hgh,
+  ylabel={$\frac{Q}{\lambda_{\alpha}}$}, xlabel={$A$},
+  ylabel near ticks,
+  ylabel style={rotate=-90}, label style={font=\small}, tick label style={font=\small},
+  smooth,
+  xmin =0, xmax =1, ymin=-0.5, ymax=1.5,
+  xtick={0,0.25,...,1},
+  ytick={-0.5,0,0.5,1, 1.5},
+]
+  \addplot [x filter/.code={\pgfmathparse{#1*0.5}\pgfmathresult},
+ thick, solid, tension=0, marks, mark options={mark indices=2},]
+    table[x index=0,y index=1] {\dir fr-s-0.7.txt} node[pos=0.2, pin={[pin edge={thick,solid,color=black},pin distance=8pt,fill=white, font=\fontsize{5}{6}\selectfont]below:{$S=0.7$}},inner sep=0pt,];
+  
+  \addplot [x filter/.code={\pgfmathparse{#1*0.5}\pgfmathresult}, thick, dashed, tension=0, marks, mark options={mark indices=2},]
+    table[x index=0,y index=1] {\dir fr-s-0.txt} node[pos=0.2, pin={[pin edge={thick,solid,color=black},pin distance=8pt,fill=white, font=\fontsize{5}{6}\selectfont]above:{$S=0$}},inner sep=0pt,];
+
+%\addplot[black,mark=*] coordinates {(0.75,0)};
+
+%\addplot[black, mark=*] coordinates {(0.70,0.02)};
+
+  		    	\addplot [dashed, thin, color=black] coordinates {
+		(0.705,0)
+		(0.71,-0.45)
+		}node[pos=0.35, Label, font=\fontsize{7}{8}\selectfont ]  {$0.71$};
+		
+	\addplot [dashed, thin, color=black] coordinates {
+		(0.75,0)
+		(0.75,-0.45)
+		}node[pos=0.55, Label,   font=\fontsize{7}{8}\selectfont ]  {$0.75$};
+
+	\addplot [dashed, thin, color=black] coordinates {
+		(0.705,0)
+		(0,0 )
+		}node[pos=0.35, Label, font=\small ]  {};
+		
+			\addplot [dashed, thin, color=black] coordinates {
+		(0.75,0)
+		(0.7,0 )
+		}node[pos=0.35, Label, font=\small ]  {};
+		
+
+
+\end{axis}
+
+\begin{axis}[
+  axis y line*=right,
+  axis x line=none,
+  grid=both,
+  width = \wgh,
+  height = \hgh,
+  ylabel={$\gamma_{avg}$ }, xlabel={$A$},
+  ylabel near ticks,
+  ylabel style={rotate=-90}, label style={font=\small}, tick label style={font=\small},
+  smooth,
+  xmin =0, xmax =1, ymax = 2.5, ymin=0.5,
+  xtick={0,0.25,...,1},
+  ytick={0.5,1,1.5,2, 2.5},
+]
+  \addplot [thick, dashed, tension=0, marks, mark options={mark indices=2},x filter/.code={\pgfmathparse{#1*0.5}\pgfmathresult},]
+    table[x index=0,y index=1] {\dir shearPerArea-s0.txt} node[pos=0.8, pin={[pin edge={thick,solid,black},pin distance=8pt, fill=white, font=\fontsize{5}{6}\selectfont]above:{$S=0$}}, inner sep =0] {};
+  
+  \addplot [ thick, solid, tension=0, marks, mark options={mark indices=2},x filter/.code={\pgfmathparse{#1*0.5}\pgfmathresult},]
+    table[x index=0,y index=1] {\dir shearPerArea-s0.7.txt} node[pos=0.8, pin={[pin edge={thick,solid,black},pin distance=8pt, fill=white, font=\fontsize{5}{6}\selectfont]below:{$S=0.7$}}, inner sep =0] {};
+
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}

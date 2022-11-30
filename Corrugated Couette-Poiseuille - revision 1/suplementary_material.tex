@@ -1,0 +1,56 @@
+\documentclass[lineno]{jfm}
+
+\usepackage{graphicx}
+% \usepackage{epstopdf, epsfig}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    urlcolor   = blue,
+    citecolor  = black,
+}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\RomanNumeralCaps}[1]
+\linenumbers
+
+\DeclareMathOperator{\Var}{\it Var}
+
+\usepackage{pbox}
+\usepackage{multirow}
+\usepackage{color, colortbl}
+\definecolor{Gray}{gray}{0.65}
+\newcommand{\RowColor}{\rowcolor{} }
+
+% \usepackage[final]{changes}
+\usepackage[markup]{changes}
+% \usepackage{mdframed}
+
+\title{Slowing down convective instabilities in corrugated Couette-Poiseuille flow}
+
+\author
+{
+ N. Yadav\aff{1} \and
+ S. W. Gepner\aff{1} \corresp{\email{stanislaw.gepner@pw.edu.pl}}
+}
+
+\affiliation{\aff{1}Warsaw University of Technology, Institute of Aeronautics and Applied Mechanics, Nowowiejska 24, 00-665 Warsaw, Poland}
+
+\begin{document}
+\maketitle
+
+Movie1.mp4:
+Flow evolution throughout the linear amplification process captured for the $CP_2$ case. The process is started with small amplitude Gaussian noise perturbation and traced up to and past the onset of nonlinear interactions at saturation time $T_s$. Conditions correspond to $A=0.462$, $Re=300$ and $\beta=0.292$ ($Re_{cr}=296$, $\beta_{cr}=0.292$).
+In the upper left corner, towards the negative $z$, iso-surfaces of the second invariant of the velocity gradient tensor taken at $80\%$ of the instantaneous maximum and coloured by streamwise vorticity also scaled by respective instantaneous maximum.
+Towards the positive $z$-direction, streamwise velocity iso-surface at $w=0.2$ and coloured according to the spanwise velocity component $u$ along with iso-surfaces of the absolute second invariant of the velocity gradient at $Q=1.5\cdot10^{-4}$ (appearing around saturation time $Ts$).
+The same is shown from the top perspective in the top-right part.
+In the bottom scaled streamwise vorticity (left) and streamwise velocity (right).
+
+\vspace{20pt}
+
+Movie2.mp4:
+Flow evolution throughout the linear amplification process captured for the $CP_3$ case. The process is started with small amplitude Gaussian noise perturbation and traced up to and past the onset of nonlinear interactions at saturation time $T_s$. Conditions correspond to $A=0.455$, $Re =340$ and $\beta=0.281$ ($Re_{cr}=313$, $\beta_{cr}=0.281$). Composition is the same as in $CP_2$ case, with iso-surfaces of the absolute second invariant of the velocity gradient at $Q=5\cdot10^{-4}$ (also appearing around saturation time $T_s$).
+
+\end{document}

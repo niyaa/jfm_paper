@@ -1,0 +1,92 @@
+\usepackage{graphicx,caption}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec}
+\usepackage{pgfplots}
+\usepackage{multirow}
+\pgfplotsset{compat=newest}
+\usepackage[nomessages]{fp}
+\newcommand\FPuse[1]{\FPeval{\result}{#1}{\result}}
+
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{arrows.meta}
+
+%Fancy arrows
+\usetikzlibrary{fadings,shapes.arrows,shadows}   
+\tikzfading[name=arrowfading, top color=transparent!0, bottom color=transparent!95]
+\tikzset{arrowfill/.style={top color=black!10, bottom color=black!80, general shadow={fill=black, shadow yshift=-0.8ex, path fading=arrowfading}}}
+\tikzset{arrowstyle/.style={draw=black,arrowfill, single arrow,minimum height=#1, single arrow,
+single arrow head extend=.3cm,}}
+\newcommand{\tikzfancyarrow}[2][1cm]{\tikz[baseline=-0.5ex]\node [arrowstyle=#1] {#2};}
+
+%new font sizes
+\RequirePackage{fix-cm}
+\def\stiny{\fontsize{4}{1}\selectfont}
+\def\ssmall{\fontsize{6}{8}\selectfont}
+
+%grouplot subtitle
+\makeatletter
+\newcommand\gpsubtitle[1]{(\@alph{\pgfplots@group@current@plot}) #1}
+\makeatother
+
+%Some global Tikz and pgf plots settings
+\tikzset{
+every pin/.append style={font=\fontsize{8}{9}\selectfont}
+}
+\tikzset{Label/.style={fill=white,sloped, inner sep=1pt, font=\tiny}}
+
+\pgfplotsset{
+    xlabel top/.style={
+        after end axis/.append code={
+            \node [rotate=0] at (rel axis cs:0.5,1.2) {#1};
+        }   
+    }
+}
+\pgfplotsset{Solid/.append style={thick, mark=none, solid}}
+\pgfplotsset{Dashed/.append style={thick, mark=none, dash pattern=on 10pt off 4pt}}
+\pgfplotsset{Dotted/.append style={thick, mark=none, dotted}}
+\pgfplotscreateplotcyclelist{thickSDD}{%
+  {Solid},
+  {Dashed},
+  {Dotted}
+}
+\pgfplotscreateplotcyclelist{black white no markers}{
+solid, 
+dotted,
+densely dotted,
+loosely dotted,
+dashed,
+loosely dashed,
+densely dashed,
+dashdotted,
+dashdotdotted,
+densely dashdotted,
+}
+\pgfplotscreateplotcyclelist{black white markers}{%
+every mark/.append style={solid,fill=gray},mark=*\\%
+every mark/.append style={solid,fill=gray},mark=square*\\%
+every mark/.append style={solid,fill=gray},mark=otimes*\\%
+every mark/.append style={solid},mark=star\\%
+every mark/.append style={solid,fill=gray},mark=diamond*\\%
+every mark/.append style={solid,fill=\pgfplotsmarklistfill},mark=*\\%
+every mark/.append style={solid,fill=\pgfplotsmarklistfill},mark=square*\\%
+every mark/.append style={solid,fill=\pgfplotsmarklistfill},mark=triangle*\\%
+every mark/.append style={solid,fill=\pgfplotsmarklistfill},mark=halfsquare*\\%
+every mark/.append style={solid,fill=\pgfplotsmarklistfill},mark=pentagon*\\%
+every mark/.append style={solid,fill=\pgfplotsmarklistfill},mark=halfcircle*\\%
+every mark/.append style={solid,fill=\pgfplotsmarklistfill,rotate=180},mark=halfdiamond*\\%
+every mark/.append style={solid,fill=\pgfplotsmarklistfill!40},mark=otimes*\\%
+every mark/.append style={solid,fill=\pgfplotsmarklistfill},mark=diamond*\\%
+every mark/.append style={solid,fill=\pgfplotsmarklistfill},mark=halfsquare right*\\%
+every mark/.append style={solid,fill=\pgfplotsmarklistfill},mark=halfsquare left*\\%
+mark=star\\%
+densely dashed,every mark/.append style={solid,fill=gray},mark=*\\%
+densely dashed,every mark/.append style={solid,fill=gray},mark=square*\\%
+densely dashed,every mark/.append style={solid,fill=gray},mark=otimes*\\%
+densely dashed,every mark/.append style={solid},mark=star\\%
+densely dashed,every mark/.append style={solid,fill=gray},mark=diamond*\\%
+}

@@ -1,0 +1,75 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=3.0cm]{geometry}
+
+\usepackage{define}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+{\bf Response to comments provided by Referee 2}
+
+Thank you for your comments. Below we copy these comments and provide our response. 
+
+\vspace*{50pt}
+
+{\bf Review of the paper: Flow dynamics and onset of nonlinear states in corrugated Couette-Poiseuille flow with minimal advection velocity This work focuses on theoretical and numerical (DNS) investigations of combined two canonical cases, the Couette flow driven by the movement of a channel wall (upper one) and the Poiseuille flow caused by a pressure gradient. The latter factor induces the flow directed against the Couette flow. In the present configuration, a stationary wall (bottom) has longitudinal (streamwise) grooves. Their presence, at certain conditions lead to a secondary flow being the effect of hydrodynamic instability and amplification of disturbances in a nonlinear regime. The research is performing applying Nektar++ code based on the spectral element method and also using the classical stability analysis. In general, the paper is well written and interesting, however, I have serious doubt whether the presented material is s uitable and sufficiently mature for publication in JFM. 
+
+\vspace*{10pt}
+
+First, the title starts with “Flow dynamics…..” but in my opinion, most of the paper concentrates on the identification of particular flow states rather than on deep investigations of what really happens in particular regimes. Moreover, a large part of the paper considers the laminar regimes of which “the dynamics” is rather not very exciting. Furthermore, the flow behaviour in the laminar conditions in the same configuration has been already discussed in one of the paper of J.M. Floryan to which I refer later.}
+
+\vspace*{20pt}
+As suggested, we have modified the title of the manuscript so that it better corresponds to the results it presents. The reviewer is right that the laminar “dynamics” is not very interesting, but we feel this part of the manuscript is needed for the sake of completes and to provide base to which nonlinear results can be compared to. We thank the reviewer for pointing our omission of the work by
+A. Mohammadi and J. M. Floryan which outlines the laminar flow conditions for a much broader range of geometries. It is now referred to in the revised version. We also point out relation of our results to those of the Mohammadi’s paper.
+\vspace*{20pt}
+
+{\bf One of the main goals of the paper defined by the authors is to determine the pressure gradient ensuring minimal advection velocity of the unstable modes, such to allow their experimental investigations. I am not sure if this is the correct approach. The results are obtained by DNS, which for the present configuration can be easily obtained. So, either we trust DNS and the experiment is not really needed, or DNS is doubtful and we need experiment. In my opinion, the main goal of this work was to show that in C-P flow one can find a pressure force ensuring almost zero phase speed of the secondary flow.}
+
+\vspace*{20pt}
+The reviewer is correct, we aim to establish conditions of the CP flow where the unstable travelling wave can be slowed down, preferably to the point that time scales of its amplification in the linear regime and advection downstream decouple. By doing that we wish to obtain a global, rather than convective instability. Our motivation comes precisely from failed experimental attempts. We think that based on the proposed approach to slowing down unstable waves, it should, in principle be possible to detect such waves in a controlled experiment, over a much shorter distance and using a smaller experimental device. 
+\vspace*{20pt}
+
+{\bf The abstract begins “We present the first numerical result on the Couette-Poiseuille (CP) flow configuration in the presence of longitudinal grooves.” This sounds as if the solution to this problem would be difficult as such. But to me, it seems to be not an astonishing achievement taking into account the simplicity of geometry. Separately, both Couette and Poiseuille flow have been solved hundreds of times. The latter, also with longitudinal grooves, by the present authors in their previous papers using practically the same approach. Hence, the solution of the combined problem (CP) does not pose difficulty, certainly not from the numerical point of view. The abstract should rather start “We present the first numerical analysis of a secondary flow in a corrugated Couette-Poiseuille flow with a minimal advection velocity.” Or something similar, but in fact, such an analysis is missing in the paper. The presented results mainly show that such a state of “minimal advection velocity” exists. Knowing this, one could at least try to investigate how the observed vortical structure (shown in Fig. 14-15) behave, for instance, the spectral or POD analysis.}
+
+\vspace*{20pt}
+The reviewer is correct in that canonical flows are often studied in the literature.
+In this sense our investigation is certainly not the first.
+% The same can be said about most of the work being published in any scientific journal.
+The reviewer might note that in our work the application of the CP flow configuration serves to slow down the unstable traveling wave, resulting from wall corrugations and that this has not been previously attempted. In this sense our results remain novel. As for the study of the flow structure that appear in the nonlinear regime is not an immediate objective here and has been done before for similar types of flows. Based on the reviewer suggestion we have modified the abstract and the introductory part of the manuscript. Regarding the suggestion to extend the investigation of the vortical structures by means of spectral or POD methods, the reviewer might note that secondary flows that steam from the considered instability, although three-dimensional and nonstationary remain very simple and the flow remains laminar. This have been illustrated e.g. for the case of Poiseuille flow and no qualitative change is observed by the introduction of the Couette component, aside from the fact that vortical structures and side to side meandering of the “velocity tube” formed in the nonlinear regime slows down significantly. 
+\vspace*{20pt}
+
+{\bf In the paper, the authors mention a few times “private communication with J.M. Floryan”. I do not understand why the authors do that so often. Is this to support some conjectures or to show collaboration with a worldwide expert in the same research field. If J.M. Floryan had an important contribution to the paper he should be a co-author. If not, he should be mentioned in the Acknowledgment section. This is, however, not a part of the review. It is only a comment as it is up to the authors how do they write their paper.}
+
+\vspace*{20pt}
+As per reviewer’s suggestion, we extended the Acknowledgment section to include J.M. Floryan. We are sorry, as this is an oversight not to include this in the original manuscript. We wish to state here that J.M. Floryan was not involved with the creation of the manuscript or in our investigations. He, however, remains an expert in the field, and has some time ago suggested to us, in a discussion, that the type of instability we are looking into should exist in a Couette configuration. At the time one of the authors perused this problem, but at the time no instability was found. We feel that using the CP configuration and tracking the unstable mode as the applied forcing transitions from CP to Couette only forcing indicates that corrugated Couette flow might in fact be unconditionally stable against considered traveling waves. Similarly, at some moment professor Floryan discussed with us his attempt at experimental investigation of the considered instability, which was not successful at the time. Aside from the work by Błoński there seems to be no other experimental attempts. 
+\vspace*{20pt}
+
+{\bf Coming back to “We present the first numerical result…”. I can be missing but I doubt it. There are many works of J.M. Floryan cited in the paper but not this one: A. Mohammadi, J. M. Floryan “Effects of longitudinal grooves on the Couette-Poiseuille flow.“, Theor. Comput. Fluid Dyn. (2014) 28:549–572. I wonder why taking into account close collaboration with J.M. Floryan. In this paper, a more complex Couette–Poiseuille flow with both upper and lower wall corrugated is studied using a semi-analytical approach. The present configuration is defined in Eq. 25a,b. In that paper, there are for instance formulas for zero mean flow conditions and shear stress on the upper and lower wall. The latter is even divided into the contribution from the Couette and Poiseuille flows. Probably, employing this knowledge in the present paper would allow the authors to determine the pressure ratio leading to zero flow conditions and would help to explain the surprising behaviour rate of strain shown in Fig. 6. If in the author opinion, this would not be possible it should be discussed. To me, taking into account the above paper of A. Mohammadi, J. M. Floryan the statement “We present the first numerical result on the Couette-Poiseuille (CP) flow configuration in the presence of longitudinal grooves.” is not fully correct, unless, the authors have in mind the Nektar++ code.}
+
+\vspace*{20pt}
+We thank the reviewer for pointing out an important contribution, that we have missed in our original manuscript. This has now been fixed. As the reviver points out, results presented in A. Mohammadi, J. M. Floryan (2014) span a very broad range of geometries, but at the same time concentrate only on the laminar, stationary solutions and omit hydrodynamic stability or existence of possible nonlinear solutions. In this sense results on stability and nonlinear solutions shown in our manuscript remain new. Also, as we mentioned before, our goal here is to illustrate an approach to the manipulation of the character of unstable waves formed in the flow by application of a mix of Couette and Poiseuille actuation. 
+Regarding the results presented by Mohammadi and Floryan (2014). Those have been, in part derived by means of semi-analytical approach based on asymptotic analysis, but domain transformation based numeric method has also been used there. The part suggested by the reviewer is based on the long wavelength assumption (with $\beta\to0$), remains approximate and corresponds to the configuration employed by us only to some extent. We note that observations made on the flowrate agree with ours in the sense that grooves benefit the Poiseuille component, at least as far as flowrate is concerned. For the case of finite wave number corrugations, we find that shear stress distributions presented in figure 5 of Mohammadi and Floryan (2014) correspond with results we show in our figure 6, and in this sense addresses the surprising behaviour of the rate of strain variation shown there. 
+\vspace*{20pt}
+
+{\bf Summing up, the present paper shows interesting results. However, in my opinion, even not taking into account the above doubts concerning novelty, the performed analysis of the flow is not at the level of JFM and therefore I suggest rejecting the paper. 
+
+Minor comments: 
+
+Line 158: If Couette $Re=0$ than $Re_p=0$ regardless of A?}
+
+\vspace*{20pt}
+The scaling applied in the manuscript is based on the speed of the moving wall, mean half-hight of the channel and viscosity.  In our analysis only the Poiseuille component is modified, while for the most part the speed of the moving wall remains unchanged. Therefore Re=0 corresponds to $\nu\to\infty$ and so $Re_p$ would be $0$. 
+\vspace*{20pt}
+
+{\bf Lines: 323, 340 and captions in Fig. 9 and 10. Why belt and not wall?}
+
+\vspace*{20pt}
+The experimental configuration, that we have discussed uses a belt to drive the flow. We have changed this to wall. 
+\vspace*{20pt}
+
+{\bf Line: 358, $\bf v_p(A=1) \approx 0.39$ but referring to Fig. 10 it seems lower.}
+
+\vspace*{20pt}
+The reviewer is right. There is a typo in the value given in the ext. It should be $v_p(A=1) \approx 0.3$. 
+\vspace*{20pt}
+
+\end{document}

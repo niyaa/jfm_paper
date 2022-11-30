@@ -1,0 +1,76 @@
+\documentclass[a4paper,12pt,preview,tikz]{standalone}% 'crop' is the default for v1.0, before it was 'preview'
+\usepackage{define}
+
+\def\dir{./}
+\def\wgh{8cm}
+
+
+\begin{document}
+\centering
+\def\hgh{0.6\textwidth}
+\begin{tikzpicture}
+
+   \pgfplotsset{
+  log y ticks with fixed point/.style={
+      yticklabel={
+        \pgfkeys{/pgf/fpu=true}
+        \pgfmathparse{exp(\tick)}%
+        \pgfmathprintnumber[fixed relative, precision=1]{\pgfmathresult}
+        \pgfkeys{/pgf/fpu=false}
+      }
+  } }
+\begin{groupplot}[
+  group style={ group name=my plots, group size=1 by 1,  horizontal sep=50pt},
+  title style={at={(-0.1,-0.25)},anchor=north}, 
+  subtitle/.style={title=\gpsubtitle{#1}}, 
+  width = \wgh,
+  height = 5cm,
+  grid=both,
+  ylabel={$Re_{cr}$}, 
+    xlabel={$A$},
+  ylabel near ticks,
+  ylabel style={rotate=-90}, label style={font=\small}, tick label style={font=\small}, 
+  smooth,
+  ymax =10000, ymin= 10,  
+   % log ticks with fixed point, ymode=log,
+      ymode=log, 
+   log x ticks with fixed point,
+      every axis y label/.style={
+     at={(ticklabel* cs:1.05)},
+     anchor=west,
+  },
+  ]
+   \nextgroupplot[  xtick={0,0.25,...,1}, xmin =0, xmax =1]
+
+\addplot [thick, solid, x filter/.code={\pgfmathparse{#1*0.5}\pgfmathresult} ]
+    table[x index=0,y index=1, ] {\dir data.txt} node[pos=0.91,   pin={[pin edge={thick, solid, black},pin distance=10pt,  draw, solid, thin, rounded corners=2pt, inner sep =2pt, rectangle, font=\fontsize{5}{6}\selectfont, fill=white]above:{A$*$Poiseuille + Couette flow}}, inner sep=0pt,]{};
+
+
+            \addplot [samples=100, gray!60, line width=3pt]
+    table[x index=0,y index=1] {\dir predict.txt} node[pos=0.72,  pin={[pin edge={thick, solid, gray},pin distance=6pt,  draw, solid, thin, rounded corners=2pt, , color = black, inner sep =2pt, rectangle, font=\fontsize{5}{6}\selectfont, fill=white]above:{$\frac{60}{A}$}}, inner sep=0pt,]{$$};
+    
+    \addplot [thick, solid, x filter/.code={\pgfmathparse{#1*0.5}\pgfmathresult} ]
+    table[x index=0,y index=1, ] {\dir data-p.txt} node[pos=0.72,  pin={[pin edge={thick, solid, black},pin distance=6pt,  draw, solid, thin, rounded corners=2pt, inner sep =2pt, rectangle, font=\fontsize{5}{6}\selectfont, fill=white]below:{Poiseuille flow}}, inner sep=0pt,]{};
+
+  		    	\addplot [solid, color=black] coordinates {
+		(0, 65)
+		(1, 65)
+		}node[pos=0.05, Label, font=\fontsize{7}{8}\selectfont ]  {$60$};
+
+%
+%    \nextgroupplot[]
+%
+% \addplot [thick, solid, x filter/.code={\pgfmathparse{#1*0.5}\pgfmathresult} ]
+%     table[x index=0,y index=2, ] {\dir data.txt} node[pos=0.95,  pin={[pin edge={thick, solid, black},pin distance=2pt, fill=white, font=\fontsize{6}{7}\selectfont]above:{$$}}, inner sep=0pt,]{};
+%
+% \addplot [thick, solid, x filter/.code={\pgfmathparse{#1*0.5}\pgfmathresult} ]
+%     table[x index=0,y index=3, ] {\dir data.txt} node[pos=0.95,  pin={[pin edge={thick, solid, black},pin distance=2pt, fill=white, font=\fontsize{6}{7}\selectfont]above:{$$}}, inner sep=0pt,]{};
+
+
+
+
+\end{groupplot}
+
+
+\end{tikzpicture}
+\end{document}
